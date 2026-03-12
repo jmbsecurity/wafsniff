@@ -1,0 +1,19 @@
+[package]
+name = "wafsniff"
+version = "2.0.0"
+edition = "2021"
+description = "Fast WAF detection tool inspired by XSStrike's wafDetector"
+
+[dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+colored = "2"
+regex = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
